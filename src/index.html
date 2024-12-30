@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mesto</title>
+  
+</head>
+<body class="page">
+<div class="page__content">
+  <header class="header page__section">
+    
+    <img src="<%=require('./images/logo.svg') %>" alt="Логотип проекта масто" class="logo header__logo">
+  </header>
+  <main class="content">
+    <section id="profile-section" class="profile page__section" data-user-id="edc3b61e14d9862014d029ef">
+      <div class="profile-image-block" id="profile-image-block">
+        <img src="<%=require('./images/edit-icon.svg') %>" alt="иконка что можно сменить картинку профиля" class="profile__change-profile-icon"></img>
+        <div id="profile__image" class="profile__image">  </div>
+      </div>
+      
+      <div class="profile__info">
+        <h1 id="profile__title" class="profile__title">Жак-Ив Кусто</h1>
+        <button id="profile__edit-button" class="profile__edit-button" type="button"></button>
+        <p id="profile__description" class="profile__description">Исследователь океана</p>
+      </div>
+      <button class="profile__add-button" type="button"></button>
+    </section>
+    <section class="places page__section">
+      <ul class="places__list">
+      </ul>
+    </section>
+  </main>
+  <footer class="footer page__section">
+    <p class="footer__copyright">
+      © 2021 Mesto Russia
+    </p>
+  </footer>
+  <dialog id="change-profile-data" class="popup">
+    <div class="popup_type_edit popup-body">
+      <div class="popup__content">
+        <button type="button" class="popup__close"></button>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <form class="popup__form edit-profile-form" name="edit-profile" novalidate>
+          <label for="change-your-profile-name-input">
+            <input type="text" name="name" id="change-your-profile-name-input" class=" popup__input popup__input_type_name" placeholder="Имя" minlength="2" maxlenght="40" required pattern="[A-Za-zА-Яа-яёЁ\s\-]*" data-pattern-error-message="может содержать только латинские и кириллические буквы, знаки дефиса и пробелы">
+            <span class=" change-your-profile-name-input-error-span error-span" ></span>
+          </label>
+          <label for="change-your-profile-bio-input">
+            <input id="change-your-profile-bio-input" type="text" name="description" class="popup__input popup__input_type_description" placeholder="Занятие" minlength="2" maxlength="200" required pattern="[A-Za-zА-Яа-яёЁ\s\-]*" data-pattern-error-message="может содержать только латинские и кириллические буквы, знаки дефиса и пробелы">
+            <span class="change-your-profile-bio-input-error-span error-span "></span>
+          </label>
+          <button type="submit" class="send-form-data-button button popup__button">Сохранить</button>
+        </form>
+      </div>
+  </div>
+ </dialog>
+  
+ <dialog id="dialog-add-a-new-card" class="popup">
+  <div class="popup_type_new-card popup-body">
+    <div class="popup__content">
+      <button type="button" class="popup__close"></button>
+      <h3 class="popup__title">Новое место</h3>
+      <form class="popup__form" name="new-place" novalidate>
+        <label for="add-card-title-input">
+          <input id="add-card-title-input" type="text" name="place-name" class=" popup__input popup__input_type_card-name" placeholder="Название" minlength="2" maxlength="30" required pattern="[A-Za-zА-Яа-яёЁ\s\-]*" data-pattern-error-message="может содержать только латинские и кириллические буквы, знаки дефиса и пробелы">
+          <span class="error add-card-title-input-error-span error-span "></span>
+        </label>
+
+        <label for="add-card-url-input">
+          <input id="add-card-url-input" type="url" name="link" class=" popup__input popup__input_type_url" placeholder="Ссылка на картинку" required>
+          <span class="error add-card-url-input-error-span error-span "></span>
+        </label>
+        
+        
+        <button type="submit" class="send-form-data-button button popup__button">Сохранить</button>
+      </form>
+    </div>
+  </div>
+ </dialog >
+
+  <dialog id="change-profile-image-popup" class="popup">
+  <div class="popup_type_new-card popup-body">
+    <div class="popup__content">
+      <button type="button" class="popup__close"></button>
+      <h3 class="popup__title">Обновить аватар</h3>
+      <form class="popup__form" id="change-profile-avatar-form" name="change-profile-avatar-form" novalidate>
+       
+
+        <label for="change-profile-image-input">
+          <input id="change-profile-image-input" type="url" name="link" class=" popup__input popup__input_type_url" placeholder="Ссылка на картинку" required>
+          <span class="error change-profile-image-input-error-span error-span "></span>
+        </label>
+        
+        
+        <button type="submit" class="send-form-data-button button popup__button">Сохранить</button>
+      </form>
+    </div>
+  </div>
+ </dialog >
+  
+ <dialog id="dialog-show-the-card-image" class="popup">
+  <div classs="popup_type_image popup-body">
+    <div class="popup__content popup__content_content_image">
+      <button type="button" class="popup__close"></button>
+      <img src="" alt="" class="popup__image">
+      <p class="popup__caption"></p>
+    </div>
+  </div>
+ </dialog>
+  
+</div>
+
+
+<template id="card-template">
+  <li class="places__item card" id="" data-card-creator-id="" data-string-likes-amount="" data-current-user-id="">
+    <img class="card__image" src="" alt="" />
+    <button type="button" class="card__delete-button"></button>
+    <div class="card__description">
+      <h2 class="card__title">
+      </h2>
+      <div class="like-block">
+        <button type="button" class="card__like-button "></button>
+        <div class="how-many-likes"></div>
+      </div>
+      
+    </div>
+  </li>
+</template>
+</body>
+</html>

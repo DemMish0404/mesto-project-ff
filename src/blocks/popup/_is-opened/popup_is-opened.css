@@ -3,5 +3,6 @@
   visibility: visible;
   opacity: 1;
   pointer-events: all;
+  z-index: 10;
   transition: visibility 0s, opacity 0.6s;
 }

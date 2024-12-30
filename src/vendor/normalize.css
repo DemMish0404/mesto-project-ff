@@ -21,6 +21,7 @@ html {
  */
 
 body {
+  
   margin: 0;
 }
 
@@ -346,4 +347,8 @@ template {
 
 [hidden] {
   display: none;
+}
+
+body.lock{ /** навещиваем класс при котором нельзя будет листать окно (как допустим при открытии popup)*/
+  overflow: hidden;
 }

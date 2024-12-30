@@ -9,15 +9,32 @@
 @import url('./__image/popup__image.css');
 
 .popup {
+  visibility: hidden;
+  opacity: 0;
   font-family: 'Inter', Arial, sans-serif;
-  display: none;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, .5);
   position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 10;
+  inset: 0;
+  z-index: -10;
+
+  
+}
+
+
+.popup-body{
+  min-width: 30%;
+  max-width: 430px;
+}
+
+
+@media (max-width: 569px) {
+  .popup-body{
+    min-width: 80%;
+  }
+  
 }

@@ -1,3 +1,5 @@
+
+
 .card__delete-button {
   width: 18px;
   height: 18px;
@@ -16,8 +18,21 @@
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  
 }
 
-.card__delete-button:hover {
+.invisible{
+  opacity: 0;
+}
+
+
+.card__delete-button.visible:hover {
   opacity: 0.6;
 }
+
+
+
+.visible{
+  opacity: 1;
+}
+
