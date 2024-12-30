@@ -7,7 +7,7 @@ import { openModal, closeModal } from './modal';
 import profilePhoto from '../images/avatar.jpg' // импортируем фото профиля 
 
 //* импортируем функции для валидации
-import {enableAllFormsValidation} from './validation.js'
+import {resetTheCurrentFormsValidation,enableAllFormsValidation} from './validation.js'
 //* импортируем функции для валидации END
 
 //? импортируем API-запросы-функции
